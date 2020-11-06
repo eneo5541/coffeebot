@@ -6,7 +6,7 @@
   "scripts": {
     "start": "nodemon index.js",
     "build": "webpack --config webpack.config.js",
-    "zip": "zip -r coffeebot.zip ./dist"
+    "zip": "zip -r -X -j coffeebot.zip ./dist"
   },
   "author": "Eric Neo <eric.neo@qantashotels.com>",
   "license": "ISC",
