@@ -1,4 +1,4 @@
-const { WebClient, ErrorCode } = require('@slack/web-api');
+const { WebClient } = require('@slack/web-api');
 //const dotenv = require('dotenv');
 //dotenv.config();
 
@@ -8,7 +8,7 @@ const coffeebot = async (event) => {
   const { user_id: botId } = await web.auth.test();
   console.log(`> This bot ID is ${botId}`);
 
-  const { channels } = await web.conversations.list();
+  const { channels } = await web.conversations.list({ limit: 500, exclude_archived: true });
   const { id: coffeeChannelId } = channels.find(({ name }) => name === process.env.CHANNEL_NAME);
   console.log(`> Channel ID for coffee channel is ${coffeeChannelId}`);
 
